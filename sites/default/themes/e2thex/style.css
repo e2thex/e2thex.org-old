@@ -1,0 +1,13 @@
+body {background:#eee;}
+#header {background:#000;color:#ddd}
+#main {background:#ccc;}
+#navbar {background:#000;}
+#navbar li {padding:0px 5px;border:1px #ccc solid;border-width:0px 1px 0px 0px}
+#navbar li.last {border:0px;}
+#navbar li a:link,
+#navbar li a:visited,
+#navbar li a:active {color:#ddd;text-decoration:none;}
+#navbar li.active a:link,
+#navbar li.active a:visited,
+#navbar li.active a:active {color:#222}
+#navbar li.active {background:#ccc;}
