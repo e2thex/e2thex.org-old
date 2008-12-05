@@ -1,13 +1,23 @@
 body {background:#eee;}
 #header {background:#000;color:#ddd}
 #main {background:#ccc;}
-#navbar {background:#000;}
-#navbar li {padding:0px 5px;border:1px #ccc solid;border-width:0px 1px 0px 0px}
-#navbar li.last {border:0px;}
-#navbar li a:link,
-#navbar li a:visited,
-#navbar li a:active {color:#ddd;text-decoration:none;}
-#navbar li.active a:link,
-#navbar li.active a:visited,
-#navbar li.active a:active {color:#222}
-#navbar li.active {background:#ccc;}
+#primary {}
+#primary li {padding:0px 5px;border:1px #ccc solid;border-width:0px 1px 0px 0px}
+#primary li.last {border:0px;}
+#primary li a:link,
+#primary li a:visited,
+#primary li a:active {color:#ddd;text-decoration:none;}
+#primary li.active-trail a:link,
+#primary li.active-trail a:visited,
+#primary li.active-trail a:active {color:#222}
+#primary li.active-trail {background:#ccc;}
+#secondary {}
+#secondary li {padding:0px 5px;margin-top:-1px;}
+#secondary li.last {border:0px;}
+#secondary li a:link,
+#secondary li a:visited,
+#secondary li a:active {color:#222;text-decoration:none;}
+#secondary li.active-trail a:link,
+#secondary li.active-trail a:visited,
+#secondary li.active-trail a:active {color:#222}
+#secondary li.active-trail {background:#eee;}
