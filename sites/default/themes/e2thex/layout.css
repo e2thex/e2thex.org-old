@@ -131,7 +131,7 @@
   .no-sidebars #content-inner
   {
     margin: 0;
-    padding: 0;
+    padding: 0 10px 10px;
   }
 
   .sidebar-left #content-inner
@@ -142,8 +142,8 @@
 
   .sidebar-right #content-inner
   {
-    padding-left: 0;
-    padding-right: 200px; /* The width + right margin of #sidebar-right. */
+    padding-left: 10px;
+    padding-right: 300px; /* The width + right margin of #sidebar-right. */
   }
 
   .two-sidebars #content-inner
@@ -242,8 +242,8 @@
   #sidebar-right
   {
     float: right;
-    width: 200px;
-    margin-left: -200px; /* Negative value of #sidebar-right's width + right margin. */
+    width: 250px;
+    margin-left: -250px; /* Negative value of #sidebar-right's width + right margin. */
     margin-right: 0;
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #sidebar-right-inner. */
   }

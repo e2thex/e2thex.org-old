@@ -21,3 +21,4 @@ body {background:#eee;}
 #secondary li.active-trail a:visited,
 #secondary li.active-trail a:active {color:#222}
 #secondary li.active-trail {background:#eee;}
+#content-inner {padding:0 10px 10px;}
