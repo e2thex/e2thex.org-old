@@ -160,11 +160,11 @@
     margin-left: 0;
     margin-right: -100%; /* Negative value of #navbar's width + left margin. */
     padding: 0; /* DO NOT CHANGE. Add padding or margin to #navbar-inner. */
-    height: 2.6em; /* The navbar can have any arbritrary height. We picked one
+    height: 3.2em; /* The navbar can have any arbritrary height. We picked one
                       that is twice the line-height pluse 1em: 2 x 1.3 + 1 = 3.6
                       Set this to the same value as the margin-top below. */
     position:relative;
-    top:-1.2em;
+    top:-1.6em;
   }
 
   .with-navbar #content,
@@ -290,3 +290,5 @@
      will mistakenly place several pixels worth of space between the bottom of
      the div and the bottom of the viewport. This fixes it. */
   #page { overflow-y: hidden; } /* CSS3 property */
+
+  .comment-submitted { width: 200px;float:right;height:100%; }

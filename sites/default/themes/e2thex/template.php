@@ -161,3 +161,11 @@ function STARTERKIT_preprocess_block(&$vars, $hook) {
   $vars['sample_variable'] = t('Lorem ipsum.');
 }
 // */
+function e2thex_comment_submitted($comment) {
+  return t('<div>by !username</div><div> @datetime</div>',
+    array(
+      '!username' => theme('username', $comment),
+      '@datetime' => format_date($comment->timestamp,'custom','d M Y')
+));
+}
+
