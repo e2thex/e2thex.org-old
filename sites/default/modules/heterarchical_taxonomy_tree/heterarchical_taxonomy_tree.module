@@ -1,0 +1,50 @@
+<?php
+// $Id: heterachical_taxonomy_tree.module,v 1.43.2.7 2008/09/09 14:39:01 sun Exp $
+//
+//
+drupal_add_css(drupal_get_path('module', 'heterarchical_taxonomy_tree') . "/heterarchical_taxonomy_tree.css");
+drupal_add_js(drupal_get_path('module', 'heterarchical_taxonomy_tree') . "/heterarchical_taxonomy_tree.js", "module");
+function heterarchical_taxonomy_tree_menu(){
+  return array(
+    'heterarchical-taxonomy-tree/get-branch' => array(
+    'page callback' => 'heterarchical_taxonomy_tree_get_branch',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+    'title' => 'Views',
+  ));
+}
+
+function heterarchical_taxonomy_tree_get_branch() {
+  $tids_string = arg(2);
+  $tids = explode(",",$tids_string);
+  $terms = heterarchical_taxonomy_tree_get_terms($tids);
+  foreach ($terms as $tid=>$term) {
+    $node_count = sizeof($term["nids"]);
+    $items[] =  l($term["name"] ." ($node_count)","taxonomy/term/$tids_string,$tid");
+
+  }
+  print theme("item_list", $items, NULL, "ul");
+
+}
+
+function heterarchical_taxonomy_tree_get_terms($tids) {
+  $nids_results = taxonomy_select_nodes($tids,'and');
+  $tids_string = implode(",",$tids);
+  $result = db_query('
+  SELECT term.nid, data.name, term.tid FROM {term_node} term 
+  INNER JOIN {term_data} data on term.tid=data.tid
+  WHERE term.nid IN (
+  SELECT t.nid as c FROM {term_node} t WHERE t.tid in (%s) GROUP BY t.nid HAVING count(*) =%d)
+  AND term.tid not in (%s)
+  ', $tids_string,sizeof($tids),$tids_string);
+  print sizeof($tids);
+  while ($row = db_fetch_object($result)) {
+    $array[$row->tid]["nids"][] = $row->nid;
+    $array[$row->tid]["name"]   = $row->name;
+  }
+  //$result = db_query('SELECT t.* FROM {term_node} r INNER JOIN {term_data} t ON r.tid = t.tid INNER JOIN {vocabulary} v ON t.vid = v.vid WHERE r.vid in (%s)', $nids_string);
+  return $array;
+
+
+
+}
